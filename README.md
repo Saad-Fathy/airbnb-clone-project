@@ -83,3 +83,8 @@ This structured approach ensures learners not only build technical skills but al
 - DevOps Engineer:
     Facilitates cooperation between development and operations teams
     Builds continuous integration and continuous delivery (CI/CD) pipelines for faster delivery
+
+# Technology Stack
+- Django
+- PostgreSQL
+- GraphQL
