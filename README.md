@@ -96,3 +96,8 @@ The key entities required for the project is:
     Bookings
     Reviews
     Payments
+
+# Feature Breakdown
+    User management
+    Property management
+    Booking System
