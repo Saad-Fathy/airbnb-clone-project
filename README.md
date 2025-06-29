@@ -106,3 +106,9 @@ The key entities required for the project is:
     Autentication
     Autorization
     Rate limiting
+
+# CI/CD Pipeline
+CI/CD pipelines are very importnat for the project
+The tools could be used for this include:
+    Github actions
+    Docker
