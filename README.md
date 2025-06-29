@@ -88,3 +88,11 @@ This structured approach ensures learners not only build technical skills but al
 - Django
 - PostgreSQL
 - GraphQL
+
+# Database Design
+The key entities required for the project is:
+    Users
+    Properties
+    Bookings
+    Reviews
+    Payments
