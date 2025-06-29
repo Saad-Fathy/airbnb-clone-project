@@ -101,3 +101,8 @@ The key entities required for the project is:
     User management
     Property management
     Booking System
+
+# API Security
+    Autentication
+    Autorization
+    Rate limiting
