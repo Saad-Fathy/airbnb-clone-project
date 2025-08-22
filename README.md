@@ -32,10 +32,40 @@ The project focuses on **backend systems, database design, API development, and 
 - **DevOps Engineer**: Manages CI/CD and streamlines delivery between development and operations.
 
 ## Technology Stack
-- Django
-- Django REST Framework
-- PostgreSQL
-- Celery
-- Redis
-- Docker
-- CI/CD Pipelines
+- **Django**: A high-level Python web framework used for building the RESTful API.
+- **Django REST Framework**: Provides tools for creating and managing RESTful APIs.
+- **PostgreSQL**: A powerful relational database used for data storage.
+- **GraphQL**: Allows for flexible and efficient querying of data.
+- **Celery**: For handling asynchronous tasks such as sending notifications or processing payments.
+- **Redis**: Used for caching and session management.
+- **Docker**: Containerization tool for consistent development and deployment environments.
+- **CI/CD Pipelines**: Automated pipelines for testing and deploying code changes.
+
+## Database Design
+
+1. **Users**
+   - `id`
+   - `name`
+   - `email` (unique)
+   - `password`
+   - `role` (e.g., guest, host, admin)
+
+2. **Properties**
+   - `title`
+   - `description`
+   - `location`
+   - `price_per_night`
+
+3. **Bookings**
+   - `check_in_date`
+   - `check_out_date`
+   - `status` (e.g., pending, confirmed, cancelled)
+
+4. **Reviews**
+   - `rating` (1–5)
+   - `comment`
+
+5. **Payments**
+   - `amount`
+   - `payment_method`
+   - `payment_status` (e.g., paid, pending, failed)
