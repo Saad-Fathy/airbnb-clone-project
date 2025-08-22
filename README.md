@@ -42,7 +42,6 @@ The project focuses on **backend systems, database design, API development, and 
 - **CI/CD Pipelines**: Automated pipelines for testing and deploying code changes.
 
 ## Database Design
-
 1. **Users**
    - `id`
    - `name`
@@ -61,11 +60,20 @@ The project focuses on **backend systems, database design, API development, and 
    - `check_out_date`
    - `status` (e.g., pending, confirmed, cancelled)
 
-4. **Reviews**
-   - `rating` (1–5)
-   - `comment`
-
-5. **Payments**
+4. **Payments**
    - `amount`
    - `payment_method`
    - `payment_status` (e.g., paid, pending, failed)
+
+5. **Reviews**
+   - `rating` (1–5)
+   - `comment`
+
+## Feature Breakdown
+
+- **User Management**: Implement a secure system for user registration, authentication, and profile management.
+- **Property Management**: Develop features for property listing creation, updates, and retrieval.
+- **Booking System**: Create a booking mechanism for users to reserve properties and manage booking details.
+- **Payment Processing**: Integrate a payment system to handle transactions and record payment details.
+- **Review System**: Allow users to leave reviews and ratings for properties.
+- **Data Optimization**: Ensure efficient data retrieval and storage through database optimizations.
