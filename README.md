@@ -107,8 +107,8 @@ The following measures will be implemented to ensure security and trustworthines
    - Ensures financial data is processed securely and complies with industry standards (e.g., PCI DSS).  
 
 ---
-
 ### Why Security Matters
+
 - **Users:** Protects sensitive personal information (names, emails, passwords). Prevents account takeover and ensures only authorized access.  
 
 - **Properties:** Ensures listings cannot be tampered with or faked by malicious actors. Protects hosts’ data and keeps guests confident in the authenticity of available properties.  
@@ -118,3 +118,20 @@ The following measures will be implemented to ensure security and trustworthines
 - **Payments:** Secures all financial transactions against fraud, misuse, and data breaches. Protects both guests and hosts by ensuring accurate, safe, and encrypted payment processing.  
 
 - **Reviews:** Prevents fake or manipulated reviews that could mislead users. Maintains platform credibility by ensuring feedback is authentic and tied to real bookings.  
+
+## CI/CD Pipeline
+### Overview
+CI/CD (Continuous Integration / Continuous Deployment) pipelines automate the process of building, testing, and deploying applications.  
+They ensure that changes to the codebase are quickly validated and delivered, reducing human error and speeding up the development cycle.
+
+### Why It’s Important
+- **Consistency:** Every code change is automatically tested and deployed in a standardized way.  
+- **Faster Feedback:** Developers are notified quickly if their changes break the system.  
+- **Efficiency:** Reduces manual work in deployment and testing, allowing the team to focus on building features.  
+- **Reliability:** Ensures that new updates are secure, stable, and production-ready.  
+
+### Tools
+CI/CD pipeline can be implemented using:  
+- **GitHub Actions:** Automate testing, linting, and deployment workflows directly within GitHub.  
+- **Docker:** Containerize the application for consistent environments across development, testing, and production.  
+- **Cloud Platforms:** AWS, Heroku, or similar services to host and scale the deployed application.  
