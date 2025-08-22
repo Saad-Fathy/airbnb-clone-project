@@ -12,28 +12,30 @@ The project focuses on **backend systems, database design, API development, and 
 - Strengthen their ability to document and plan complex software projects effectively.
 - Develop an understanding of integrating technologies like Django, MySQL, and GraphQL in a unified ecosystem.
 
-## Tech Stack
-- **Backend Framework**: Django  
-- **Database**: MySQL  
-- **API Layer**: GraphQL  
-- **DevOps / Deployment**: Docker, GitHub Actions (CI/CD)  
-- **Collaboration & Documentation**: GitHub, Markdown  
-
 ## Team Roles
-- **Business Analyst (BA)** — Bridges customer needs with technical implementation.
+- **Business Analyst (BA)**: Bridges customer needs with technical implementation.
 
-- **Product Owner (PO)** — Defines the product vision and ensures alignment with customer needs (often more business-focused than the BA).
+- **Product Owner (PO)**: Defines the product vision and ensures alignment with customer needs (often more business-focused than the BA).
 
-- **Project Manager (PM)** — Oversees timelines, budgets, and team motivation.
+- **Project Manager (PM)**: Oversees timelines, budgets, and team motivation.
 
-- **UI/UX Designer** — Crafts user journeys and interface designs driven by usability and engagement.
+- **UI/UX Designer**: Crafts user journeys and interface designs driven by usability and engagement.
 
-- **Software Architect** — Shapes the technical architecture and sets coding standards.
+- **Software Architect**: Shapes the technical architecture and sets coding standards.
 
-- **Developers** — Front-end, back-end, or full-stack engineers who implement features.
+- **Developers**: Front-end, back-end, or full-stack engineers who implement features.
 
-- **QA Engineer** — Ensures functionality, performance, and security meet requirements.
+- **QA Engineer**: Ensures functionality, performance, and security meet requirements.
 
-- **Test Automation Engineer** — Builds automated testing systems to enhance quality and speed.
+- **Test Automation Engineer**: Builds automated testing systems to enhance quality and speed.
 
-- **DevOps Engineer** — Manages CI/CD and streamlines delivery between development and operations.
+- **DevOps Engineer**: Manages CI/CD and streamlines delivery between development and operations.
+
+## Technology Stack
+- Django
+- Django REST Framework
+- PostgreSQL
+- Celery
+- Redis
+- Docker
+- CI/CD Pipelines
