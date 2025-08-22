@@ -70,10 +70,51 @@ The project focuses on **backend systems, database design, API development, and 
    - `comment`
 
 ## Feature Breakdown
-
 - **User Management**: Implement a secure system for user registration, authentication, and profile management.
 - **Property Management**: Develop features for property listing creation, updates, and retrieval.
 - **Booking System**: Create a booking mechanism for users to reserve properties and manage booking details.
 - **Payment Processing**: Integrate a payment system to handle transactions and record payment details.
 - **Review System**: Allow users to leave reviews and ratings for properties.
 - **Data Optimization**: Ensure efficient data retrieval and storage through database optimizations.
+
+## API Security
+
+Securing backend APIs is critical to protecting user data, financial transactions, and the integrity of the platform.  
+The following measures will be implemented to ensure security and trustworthiness of the system:
+
+1. **Authentication**
+   - Users must log in with valid credentials (e.g., email & password) or through secure OAuth2 flows.  
+   - Ensures only registered users can access protected endpoints.  
+
+2. **Authorization**
+   - Role-based access control (Guest, Host, Admin).  
+   - Example: A Host can manage their own properties, but cannot access another Host’s listings.  
+   - Protects system integrity by restricting actions to authorized roles only.  
+
+3. **Rate Limiting**
+   - Restricts the number of API requests per user within a specific timeframe.  
+   - Prevents abuse, brute-force login attempts, and denial-of-service (DoS) attacks.  
+
+4. **Data Encryption**
+   - Use HTTPS/TLS to secure data transmission between client and server.  
+   - Sensitive data (like passwords and payment info) stored with strong hashing/encryption algorithms.  
+
+5. **Input Validation & Sanitization**
+   - Prevents malicious data entry, protecting against SQL injection and cross-site scripting (XSS).  
+
+6. **Secure Payments**
+   - Payment-related endpoints will include additional security checks.  
+   - Ensures financial data is processed securely and complies with industry standards (e.g., PCI DSS).  
+
+---
+
+### Why Security Matters
+- **Users:** Protects sensitive personal information (names, emails, passwords). Prevents account takeover and ensures only authorized access.  
+
+- **Properties:** Ensures listings cannot be tampered with or faked by malicious actors. Protects hosts’ data and keeps guests confident in the authenticity of available properties.  
+
+- **Bookings:** Safeguards booking records so they cannot be altered, duplicated, or cancelled fraudulently. Ensures trust between guests and hosts.  
+
+- **Payments:** Secures all financial transactions against fraud, misuse, and data breaches. Protects both guests and hosts by ensuring accurate, safe, and encrypted payment processing.  
+
+- **Reviews:** Prevents fake or manipulated reviews that could mislead users. Maintains platform credibility by ensuring feedback is authentic and tied to real bookings.  
