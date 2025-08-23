@@ -1,10 +1,12 @@
 # Airbnb Clone Project 
 
 ## Overview
+
 The Airbnb Clone Project is a real-world learning project designed to simulate the development of a scalable booking platform inspired by Airbnb.  
 The project focuses on **backend systems, database design, API development, and application security**, while also exposing learners to collaborative workflows and modern DevOps practices.
 
 ## Learning Objective
+
 - Master collaborative team workflows using GitHub.
 - Deepen their understanding of backend architecture and database design principles.
 - Implement advanced security measures for API development.
@@ -13,96 +15,177 @@ The project focuses on **backend systems, database design, API development, and 
 - Develop an understanding of integrating technologies like Django, MySQL, and GraphQL in a unified ecosystem.
 
 ## Team Roles
-- **Business Analyst (BA)**: Bridges customer needs with technical implementation.
 
-- **Product Owner (PO)**: Defines the product vision and ensures alignment with customer needs (often more business-focused than the BA).
+### Business Analyst (BA)
+Bridges customer needs with technical implementation.
 
-- **Project Manager (PM)**: Oversees timelines, budgets, and team motivation.
+### Product Owner (PO)
+Defines the product vision and ensures alignment with customer needs (often more business-focused than the BA).
 
-- **UI/UX Designer**: Crafts user journeys and interface designs driven by usability and engagement.
+### Project Manager (PM)
+Oversees timelines, budgets, and team motivation.
 
-- **Software Architect**: Shapes the technical architecture and sets coding standards.
+### UI/UX Designer
+Crafts user journeys and interface designs driven by usability and engagement.
 
-- **Developers**: Front-end, back-end, or full-stack engineers who implement features.
+### Software Architect
+Shapes the technical architecture and sets coding standards.
 
-- **QA Engineer**: Ensures functionality, performance, and security meet requirements.
+### Developers
+Front-end, back-end, or full-stack engineers who implement features.
 
-- **Test Automation Engineer**: Builds automated testing systems to enhance quality and speed.
+### QA Engineer
+Ensures functionality, performance, and security meet requirements.
 
-- **DevOps Engineer**: Manages CI/CD and streamlines delivery between development and operations.
+### Test Automation Engineer
+Builds automated testing systems to enhance quality and speed.
+
+### DevOps Engineer
+Manages CI/CD and streamlines delivery between development and operations.
 
 ## Technology Stack
-- **Django**: A high-level Python web framework used for building the RESTful API.
-- **Django REST Framework**: Provides tools for creating and managing RESTful APIs.
-- **PostgreSQL**: A powerful relational database used for data storage.
-- **GraphQL**: Allows for flexible and efficient querying of data.
-- **Celery**: For handling asynchronous tasks such as sending notifications or processing payments.
-- **Redis**: Used for caching and session management.
-- **Docker**: Containerization tool for consistent development and deployment environments.
-- **CI/CD Pipelines**: Automated pipelines for testing and deploying code changes.
+
+### Django
+A high-level Python web framework used for building the RESTful API.
+
+### Django REST Framework
+Provides tools for creating and managing RESTful APIs.
+
+### PostgreSQL
+A powerful relational database used for data storage.
+#### GraphQL
+Allows for flexible and efficient querying of data.
+### Celery
+For handling asynchronous tasks such as sending notifications or processing payments.
+### Redis
+Used for caching and session management.
+### Docker 
+Containerization tool for consistent development and deployment environments.
+### CI/CD Pipelines
+Automated pipelines for testing and deploying code changes.
 
 ## Database Design
-1. **Users**
-   - `id`
-   - `name`
-   - `email` (unique)
-   - `password`
-   - `role` (e.g., guest, host, admin)
 
-2. **Properties**
-   - `title`
-   - `description`
-   - `location`
-   - `price_per_night`
+### Users
 
-3. **Bookings**
-   - `check_in_date`
-   - `check_out_date`
-   - `status` (e.g., pending, confirmed, cancelled)
+**Key Fields:**
+- `id` (Primary Key)
+- `name`
+- `email` (unique)
+- `password_hash`
+- `role` (e.g., guest, host, admin)
 
-4. **Payments**
-   - `amount`
-   - `payment_method`
-   - `payment_status` (e.g., paid, pending, failed)
+**Relationships:**
+- A User (Guest) can make multiple Bookings.
+- A User (Host) can own multiple Properties.
+- A User can leave multiple Reviews (but typically only one per property per booking).
+- A User can make multiple Payments (through their bookings).
 
-5. **Reviews**
-   - `rating` (1–5)
-   - `comment`
+### Properties
+
+**Key Fields:**
+- `id` (Primary Key)
+- `host_id` (Foreign Key → Users.id)
+- `title`
+- `description`
+- `location`
+- `price_per_night`
+
+**Relationships:** 
+- Each Property belongs to one Host (FK → Users.id).
+- A Property can have multiple Bookings
+- A Property can have multiple Reviews (from different guests).
+- A Property is indirectly linked to multiple Payments (via Bookings).
+
+### Bookings
+
+**Key Fields:**
+- `id` (Primary Key)
+- `user_id` (Foreign Key → Users.id)
+- `property_id` (Foreign Key → Properties.id)
+- `check_in_date`
+- `check_out_date`
+- `status` (e.g., pending, confirmed, cancelled)
+
+**Relationships:**
+- Each Booking is made by one Guest (FK → Users.id).
+- Each Booking is for one Property (FK → Properties.id).
+- Each Booking has one Payment (FK → Payments.id).
+- Each Booking may generate one Review (from the guest).
+
+### Reviews
+
+**Key Fields:**
+- `id` (Primary Key)
+- `user_id` (Foreign Key → Users.id)
+- `property_id` (Foreign Key → Properties.id)
+- `rating` (1–5)
+- `comment`
+
+**Relationships:**
+- Each Review is linked to one Booking (ensuring reviews can only be made after a stay).
+- Each Review is authored by one User (Guest).
+- Each Review is about one Property.
+
+### Payments
+
+**Key Fields:**
+- `id` (Primary Key)
+- `booking_id` (Foreign Key → Bookings.id)
+- `amount`
+- `payment_method`
+- `payment_status` (e.g., paid, pending, failed)
+
+**Relationships:**
+- Each Payment is tied to one Booking (1:1).
+- Since the Booking is linked to a User and a Property, the Payment is indirectly tied to both.
 
 ## Feature Breakdown
-- **User Management**: Implement a secure system for user registration, authentication, and profile management.
-- **Property Management**: Develop features for property listing creation, updates, and retrieval.
-- **Booking System**: Create a booking mechanism for users to reserve properties and manage booking details.
-- **Payment Processing**: Integrate a payment system to handle transactions and record payment details.
-- **Review System**: Allow users to leave reviews and ratings for properties.
-- **Data Optimization**: Ensure efficient data retrieval and storage through database optimizations.
+
+### User Management
+Implement a secure system for user registration, authentication, and profile management.
+
+### Property Management
+Develop features for property listing creation, updates, and retrieval.
+
+### Booking System
+Create a booking mechanism for users to reserve properties and manage booking details.
+
+### Payment Processing
+Integrate a payment system to handle transactions and record payment details.
+
+### Review System
+Allow users to leave reviews and ratings for properties.
+
+### Data Optimization
+Ensure efficient data retrieval and storage through database optimizations.
 
 ## API Security
 
 Securing backend APIs is critical to protecting user data, financial transactions, and the integrity of the platform.  
 The following measures will be implemented to ensure security and trustworthiness of the system:
 
-1. **Authentication**
+### Authentication
    - Users must log in with valid credentials (e.g., email & password) or through secure OAuth2 flows.  
    - Ensures only registered users can access protected endpoints.  
 
-2. **Authorization**
+### Authorization
    - Role-based access control (Guest, Host, Admin).  
    - Example: A Host can manage their own properties, but cannot access another Host’s listings.  
    - Protects system integrity by restricting actions to authorized roles only.  
 
-3. **Rate Limiting**
+### Rate Limiting
    - Restricts the number of API requests per user within a specific timeframe.  
    - Prevents abuse, brute-force login attempts, and denial-of-service (DoS) attacks.  
 
-4. **Data Encryption**
+### Data Encryption
    - Use HTTPS/TLS to secure data transmission between client and server.  
    - Sensitive data (like passwords and payment info) stored with strong hashing/encryption algorithms.  
 
-5. **Input Validation & Sanitization**
+### Input Validation & Sanitization
    - Prevents malicious data entry, protecting against SQL injection and cross-site scripting (XSS).  
 
-6. **Secure Payments**
+### Secure Payments
    - Payment-related endpoints will include additional security checks.  
    - Ensures financial data is processed securely and complies with industry standards (e.g., PCI DSS).  
 
@@ -120,6 +203,7 @@ The following measures will be implemented to ensure security and trustworthines
 - **Reviews:** Prevents fake or manipulated reviews that could mislead users. Maintains platform credibility by ensuring feedback is authentic and tied to real bookings.  
 
 ## CI/CD Pipeline
+
 ### Overview
 CI/CD (Continuous Integration / Continuous Deployment) pipelines automate the process of building, testing, and deploying applications.  
 They ensure that changes to the codebase are quickly validated and delivered, reducing human error and speeding up the development cycle.
@@ -131,6 +215,7 @@ They ensure that changes to the codebase are quickly validated and delivered, re
 - **Reliability:** Ensures that new updates are secure, stable, and production-ready.  
 
 ### Tools
+
 CI/CD pipeline can be implemented using:  
 - **GitHub Actions:** Automate testing, linting, and deployment workflows directly within GitHub.  
 - **Docker:** Containerize the application for consistent environments across development, testing, and production.  
